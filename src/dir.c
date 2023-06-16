@@ -52,6 +52,9 @@ struct Dir {
   char name[MAX_PATH];
 };
 
+#elif defined(profanOS)
+
+#include <syscall.h>
 
 #else  /* UNIX */
 #include <sys/types.h>
@@ -277,6 +280,35 @@ void set_exec(const char *path)
   chmod(path,0755);  /* rwxr-xr-x */
 }
 
+#elif defined(profanOS)
+
+char *open_dir(const char *dirname)
+/* open a directory for examination */
+{
+  printf("open_dir(%s), not implemented\n", dirname);
+  return (char *) NULL;
+}
+
+
+char *read_dir(char *d)
+/* get next file name from opened directory, NULL if no more entries */
+{
+  printf("read_dir(%x), not implemented\n", d);
+  return NULL;
+}
+
+
+void close_dir(char *d)
+/* finish directory access */
+{
+  printf("close_dir(%x), not implemented\n", d);
+}
+
+
+void set_exec(const char *path)
+{
+  printf("set_exec(%s), not implemented\n", path);
+}
 
 #else /* UNIX */
 

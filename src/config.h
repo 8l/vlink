@@ -16,6 +16,8 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#define profanOS
+
 
 /* Edit the following defines for your system: */
 

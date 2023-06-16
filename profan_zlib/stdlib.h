@@ -5,6 +5,10 @@
 
 #define get_func_addr ((int (*)(int, int)) *(int *) 0x1ffffb)
 
+#define EXIT_FAILURE 1
+#define EXIT_SUCCESS 0
+
+#define offsetof(type, member) ((uint32_t) &((type *) 0)->member)
 /*
 int main();
 void *calloc(uint32_t nmemb, uint32_t lsize);
@@ -17,6 +21,7 @@ int abs(int j);
 int atexit(void (*func)(void));
 double atof(const char *s);
 */
+
 
 #define calloc(nmemb, lsize) ((void *(*)(uint32_t, uint32_t)) get_func_addr(STDLIB_ID, 3))(nmemb, lsize)
 #define free(mem) ((void (*)(void *)) get_func_addr(STDLIB_ID, 4))(mem)
