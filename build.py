@@ -3,9 +3,9 @@ import os
 CC      = "gcc"
 LD      = "ld"
 
-OUTPUT  = "lua"
+OUTPUT  = "vlink"
 
-CFLAGS  = "-g -ffreestanding -fno-exceptions -m32 -I ./profan_zlib -I ./local_lib -Wno-incompatible-pointer-types -Wno-overflow"
+CFLAGS  = "-g -ffreestanding -fno-exceptions -m32 -I ./profan_zlib"
 LDFLAGS = "-T link.ld -z max-page-size=0x1000"
 
 OBJDIR  = "build"
@@ -33,7 +33,6 @@ def link_files(entry, objs, output = OUTPUT):
 def main():
     execute_command(f"mkdir -p {OBJDIR}")
     objs = [compile_file(src) for src in DOOMSRC]
-    objs.append(compile_file("bordel.c", "local_lib"))
 
     entry = compile_file("entry.c", ".")
     link_files(entry, objs)
