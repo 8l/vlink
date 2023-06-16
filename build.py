@@ -6,7 +6,7 @@ LD      = "ld"
 OUTPUT  = "vlink"
 
 CFLAGS  = "-g -ffreestanding -fno-exceptions -m32 -I ./profan_zlib"
-LDFLAGS = "-T link.ld -z max-page-size=0x1000"
+LDFLAGS = "-T link.ld"
 
 OBJDIR  = "build"
 SRCDIR  = "src"

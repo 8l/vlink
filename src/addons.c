@@ -31,7 +31,31 @@ long long __divdi3(long long a, long long b) {
 }
 
 int fseek(FILE *stream, long offset, int whence) {
-    puts("fseek is not implemented yet...\n");
+    // we check if the file is null
+    if (stream == stdin || stream == stdout || stream == stderr) { 
+        printf("stream is stdin, stdout or stderr\n");
+        return 0;
+    }
+    // we check the whence
+    switch (whence) {
+        case SEEK_SET:
+            // we check if the offset is valid
+            if (offset < 0 || offset >= stream->buffer_size) {
+                return 0;
+            }
+            // we set the buffer position
+            stream->buffer_pos = offset;
+            break;
+        case SEEK_CUR:
+            // we set the buffer position
+            stream->buffer_pos += offset;
+            break;
+        case SEEK_END:
+            // we set the buffer position
+            stream->buffer_pos = stream->buffer_size + offset;
+            break;
+        default:
+            return 0;
+    }
     return 0;
 }
-
