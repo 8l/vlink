@@ -307,7 +307,7 @@ void close_dir(char *d)
 
 void set_exec(const char *path)
 {
-  printf("set_exec(%s), not implemented\n", path);
+  // not required in profan
 }
 
 #else /* UNIX */
