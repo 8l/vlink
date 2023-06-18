@@ -1,0 +1,31 @@
+name: build vlink
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc
+
+    - name: build src
+      run: |
+        python3 build.py
+
+    - name: Release to GitHub
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+        title: "vlink for profanOS"
+        automatic_release_tag: latest
+        repo_token: "${{ secrets.GIT_TOKEN }}"
+        files: |
+          vlink.bin
