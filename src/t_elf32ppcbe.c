@@ -704,23 +704,23 @@ static uint8_t ppc32_reloc_vlink2elf(struct Reloc *r)
           case FHA: rt = R_PPC_SECTOFF_HA; break;
         }
         break;
-      
+
       case R_COPY:
         rt = R_PPC_COPY;
         break;
-      
+
       case R_GLOBDAT:
         rt = R_PPC_GLOB_DAT;
         break;
-      
+
       case R_JMPSLOT:
         rt = R_PPC_JMP_SLOT;
         break;
-      
+
       case R_LOADREL:
         rt = R_PPC_RELATIVE;
         break;
-      
+
       case R_LOCALPC:
         if (f == FB24)
           rt = R_PPC_LOCAL24PC;

@@ -522,7 +522,7 @@ void elf_dynreloc(struct ObjectUnit *ou,struct Reloc *r,int relafmt,
 
   /* increase size for new entry */
   (*secp)->size += elfrelsize;
-  
+
   /* allocate referenced symbol in .dynsym and .dynstr */
   if (r->xrefname) {
     struct Symbol *sym = r->relocsect.symbol;
@@ -1337,7 +1337,7 @@ size_t elf_addrela(struct GlobalVars *gv,struct LinkedSection *ls,
                gv->reloctab_format==RTAB_ADDEND ? 0 : rel->addend);
   return reloclist->writesize;
 }
-      
+
 
 void elf_initoutput(struct GlobalVars *gv,
                     uint32_t init_file_offset,int8_t output_endianess)

@@ -455,7 +455,7 @@ struct Symbol *addsymbol(struct GlobalVars *gv,struct Section *s,
     }
     else if (flags & IFF_ADDUNDERSCORE) {
       char *new_name = alloc(strlen(name) + 2);
-      
+
       *new_name = '_';
       strcpy(new_name+1,name);
       sym->name = new_name;

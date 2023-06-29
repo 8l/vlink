@@ -32,7 +32,7 @@
   .string cpu
   .number nsections [1-based]
   .number nsymbols [1-based]
-  
+
 nsymbols
   .string name
   .number type

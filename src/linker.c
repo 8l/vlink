@@ -643,7 +643,7 @@ static struct Symbol *dyn_entry(struct GlobalVars *gv,DynArg arg,int entrytype)
 
   if (fff[gv->dest_format]->dynentry)
     return fff[gv->dest_format]->dynentry(gv,arg,entrytype);
-  
+
   /* dynamic symbol reference not supported by target */
   error(126,fff[gv->dest_format]->tname);
   return NULL;
@@ -1578,7 +1578,7 @@ void linker_mapfile(struct GlobalVars *gv)
         if (ls->filesize < ls->size)
           fprintf(gv->map_file,", allocated %lx",ls->filesize);
         fprintf(gv->map_file,")\n");
-  
+
         for (sec=(struct Section *)ls->sections.first;
              sec->n.next!=NULL; sec=(struct Section *)sec->n.next) {
           if (sec->obj!=NULL && !is_ld_script(sec->obj)) {
@@ -1797,7 +1797,7 @@ void linker_relocate(struct GlobalVars *gv)
                   undef_sym_error(sec,rel,sdabase_name);
               }
               break;
-              
+
             case R_SD2:       /* _SDA2_BASE_ relative reference */
               if (!gv->dest_object) {
                 /* resolve base-relative relocation for executable file */
@@ -1889,7 +1889,7 @@ void linker_relocate(struct GlobalVars *gv)
                 }
               }
               break;
-            
+
             case R_ABS:
             case R_NONE:
               break;
