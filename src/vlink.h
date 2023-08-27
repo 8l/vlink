@@ -21,8 +21,6 @@
 #include <ctype.h>
 #include "config.h"
 
-int fseek(FILE *stream, long offset, int whence);
-
 /* program's name */
 #define PNAME "vlink"
 
