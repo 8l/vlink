@@ -1,6 +1,15 @@
 #ifndef TYPE_H
 #define TYPE_H
 
+/*****************************
+ *                          *
+ *       kernel types       *
+ *                          *
+*****************************/
+
+#ifndef KTYPE_H
+#define KTYPE_H
+
 #ifndef FS_SECTOR_SIZE
 #define FS_SECTOR_SIZE 256
 #endif
@@ -53,6 +62,7 @@ typedef struct {
 typedef struct {
     vdisk_t **vdisk;            // list mounted virtual disks
     uint32_t vdisk_count;       // virtual disk count
+    uint32_t max_disks;         // maximum virtual disk count
 } filesys_t;
 
 typedef struct {
@@ -70,11 +80,13 @@ typedef struct {
     uint8_t sleep; // sleep after start
 } runtime_args_t;
 
-//-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-//
-// Math (from stdlib)
-//
-//-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+#endif
+
+/*****************************
+ *                          *
+ *        libs types        *
+ *                          *
+*****************************/
 
 typedef struct _div_t {
     int quot;
